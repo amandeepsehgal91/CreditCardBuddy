@@ -1,0 +1,23 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+
+# Swift Package Manager
+/.build/
+/Package.resolved
+
+# macOS
+*.DS_Store
+
+# Node
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
