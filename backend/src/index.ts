@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import dashboardRouter from './dashboard';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -14,6 +15,8 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
   res.send({ status: 'ok' });
 });
+
+app.use('/dashboard', dashboardRouter);
 
 app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`);

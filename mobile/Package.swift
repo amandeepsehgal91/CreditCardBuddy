@@ -8,7 +8,7 @@ let package = Package(
         .macCatalyst(.v17)
     ],
     products: [
-        .library(
+        .executable(
             name: "CreditCardBuddy",
             targets: ["CreditCardBuddy"]
         )
@@ -18,7 +18,7 @@ let package = Package(
             name: "CreditCardBuddy",
             path: "./",
             exclude: ["README.md"],
-            sources: ["Models", "ViewModels", "Views"],
+            sources: ["Models", "ViewModels", "Views", "Services", "App"],
             swiftSettings: [
                 .define("SWIFTUI_AVAILABLE")
             ]

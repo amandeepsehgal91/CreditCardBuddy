@@ -5,11 +5,15 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    dashboardHeader
-                    rewardsSummary
+                    if let summary = viewModel.summary {
+                        DashboardSummaryView(summary: summary)
+                    }
+
                     quickActions
+
+                    spendSection
                     cardList
                 }
                 .padding()
@@ -18,6 +22,7 @@ struct HomeView: View {
             .task {
                 await viewModel.loadDashboard()
             }
+            .overlay(loadingOverlay)
             .alert("Error", isPresented: Binding(get: { viewModel.errorMessage != nil }, set: { _ in viewModel.errorMessage = nil })) {
                 Button("OK", role: .cancel) {}
             } message: {
@@ -26,53 +31,56 @@ struct HomeView: View {
         }
     }
 
-    private var dashboardHeader: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Connected cards")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            Text("\(viewModel.cards.count)")
-                .font(.largeTitle)
-                .bold()
-            Text("Monthly spend ₹\(String(format: "%.0f", viewModel.totalSpend))")
-                .font(.title3)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-
-    private var rewardsSummary: some View {
-        CardView {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Rewards balance")
-                    .font(.headline)
-                Text("\(viewModel.totalRewards) points")
-                    .font(.title)
-                    .bold()
-                Text("Recommended next redemption: Airline miles")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-        }
-    }
-
     private var quickActions: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 14) {
             ActionButton(title: "Connect card", systemImage: "link")
             ActionButton(title: "Spend insights", systemImage: "chart.bar")
             ActionButton(title: "Recommendations", systemImage: "star")
         }
     }
 
+    private var spendSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Top spend categories")
+                .font(.headline)
+            ForEach(viewModel.spendCategories) { category in
+                SpendCategoryRow(category: category)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     private var cardList: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Your cards")
-                .font(.headline)
+            HStack {
+                Text("Your cards")
+                    .font(.headline)
+                Spacer()
+                Text("View all")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+            }
+
             ForEach(viewModel.cards) { card in
                 CreditCardRow(card: card)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var loadingOverlay: some View {
+        Group {
+            if viewModel.isLoading {
+                Color.black.opacity(0.25)
+                    .ignoresSafeArea()
+                    .overlay(
+                        ProgressView("Loading dashboard...")
+                            .padding(24)
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(16)
+                    )
+            }
+        }
     }
 }
 
@@ -118,24 +126,35 @@ struct CreditCardRow: View {
     let card: CreditCard
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(card.cardName)
-                    .font(.headline)
-                Text(card.issuer)
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(card.cardName)
+                        .font(.headline)
+                    Text(card.issuer)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Text("•••• " + card.last4)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                Text("•••• " + card.last4)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
             }
-            Spacer()
-            VStack(alignment: .trailing) {
-                Text("₹\(Int(card.currentBalance))")
-                    .font(.headline)
-                Text("Due: \(card.dueDate, style: .date)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Balance")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text("₹\(Int(card.currentBalance))")
+                        .font(.headline)
+                }
+                Spacer()
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text("Due")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text("\(card.dueDate, style: .date)")
+                        .font(.subheadline)
+                }
             }
         }
         .padding()
