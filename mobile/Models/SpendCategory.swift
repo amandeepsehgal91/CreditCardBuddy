@@ -6,4 +6,8 @@ struct SpendCategory: Identifiable, Codable {
     let amount: Double
     let color: String
     let percent: Double
+
+    enum CodingKeys: String, CodingKey {
+        case name, amount, color, percent
+    }
 }

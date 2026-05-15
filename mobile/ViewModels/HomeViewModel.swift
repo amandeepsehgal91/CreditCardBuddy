@@ -19,7 +19,7 @@ final class HomeViewModel: ObservableObject {
             cards = dashboard.cards
             spendCategories = dashboard.spendCategories
         } catch {
-            errorMessage = "Unable to load dashboard"
+            errorMessage = error.localizedDescription
         }
     }
 }

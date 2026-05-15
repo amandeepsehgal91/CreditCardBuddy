@@ -1,7 +1,7 @@
 import Foundation
 
 struct CreditCard: Identifiable, Codable {
-    let id: UUID
+    let id: String
     let issuer: String
     let cardName: String
     let last4: String

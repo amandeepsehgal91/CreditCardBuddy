@@ -1,55 +1,50 @@
 import Foundation
 
-struct DashboardData {
+struct DashboardData: Codable {
     let summary: DashboardSummary
     let cards: [CreditCard]
     let spendCategories: [SpendCategory]
 }
 
+enum DashboardServiceError: LocalizedError {
+    case invalidURL
+    case invalidResponse(statusCode: Int, message: String)
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "Invalid dashboard URL."
+        case let .invalidResponse(statusCode, message):
+            return "Server error (\(statusCode)): \(message)"
+        }
+    }
+}
+
 final class DashboardService {
+    private let dashboardURLString = "http://127.0.0.1:4000/dashboard"
+
     func fetchDashboard() async throws -> DashboardData {
-        try await Task.sleep(nanoseconds: 200_000_000)
+        guard let url = URL(string: dashboardURLString) else {
+            throw DashboardServiceError.invalidURL
+        }
 
-        let cards = [
-            CreditCard(
-                id: UUID(),
-                issuer: "HDFC",
-                cardName: "Millenia",
-                last4: "1234",
-                rewardProgram: "SmartPoints",
-                currentBalance: 15420.50,
-                availableCredit: 34579.50,
-                dueDate: Date().addingTimeInterval(5 * 24 * 3600),
-                monthlySpend: 3740.00
-            ),
-            CreditCard(
-                id: UUID(),
-                issuer: "SBI",
-                cardName: "Elite",
-                last4: "5678",
-                rewardProgram: "Cashback",
-                currentBalance: 8200.00,
-                availableCredit: 12100.00,
-                dueDate: Date().addingTimeInterval(12 * 24 * 3600),
-                monthlySpend: 6200.00
-            )
-        ]
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
 
-        let spendCategories = [
-            SpendCategory(name: "Dining", amount: 6200, color: "#FF9F1C", percent: 37),
-            SpendCategory(name: "Travel", amount: 4200, color: "#2EC4B6", percent: 25),
-            SpendCategory(name: "Groceries", amount: 3600, color: "#8D99AE", percent: 21),
-            SpendCategory(name: "Shopping", amount: 2400, color: "#EF476F", percent: 17)
-        ]
+        let (data, response) = try await URLSession.shared.data(for: request)
 
-        let summary = DashboardSummary(
-            totalCards: cards.count,
-            monthlySpend: cards.reduce(0) { $0 + $1.monthlySpend },
-            totalRewards: 12450,
-            nextPaymentDue: Date().addingTimeInterval(5 * 24 * 3600),
-            nextRedemptionHint: "Use HDFC Miles for flights"
-        )
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw DashboardServiceError.invalidResponse(statusCode: -1, message: "No HTTP response received.")
+        }
 
-        return DashboardData(summary: summary, cards: cards, spendCategories: spendCategories)
+        guard (200..<300).contains(httpResponse.statusCode) else {
+            let message = String(data: data, encoding: .utf8) ?? HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode)
+            throw DashboardServiceError.invalidResponse(statusCode: httpResponse.statusCode, message: message)
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode(DashboardData.self, from: data)
     }
 }
