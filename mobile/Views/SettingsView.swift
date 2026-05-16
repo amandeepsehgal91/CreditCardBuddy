@@ -3,6 +3,11 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedEnvironment = NetworkEnvironment.current
+    @State private var healthStatus: String = "Unknown"
+    @State private var isCheckingHealth = false
+    @State private var healthMessage: String = ""
+
+    private let healthService = HealthService()
 
     var body: some View {
         NavigationView {
@@ -32,6 +37,31 @@ struct SettingsView: View {
                         .lineLimit(1)
                         .truncationMode(.middle)
                 }
+
+                Section(header: Text("Backend health")) {
+                    HStack {
+                        Text("Status")
+                        Spacer()
+                        if isCheckingHealth {
+                            ProgressView()
+                        } else {
+                            Text(healthStatus)
+                                .foregroundColor(healthStatus == "ok" ? .green : .secondary)
+                        }
+                    }
+
+                    if !healthMessage.isEmpty {
+                        Text(healthMessage)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
+
+                    Button("Check connection") {
+                        Task {
+                            await checkHealth()
+                        }
+                    }
+                }
             }
             .navigationTitle("Settings")
             .toolbar {
@@ -48,7 +78,23 @@ struct SettingsView: View {
                     }
                 }
             }
+            .task {
+                await checkHealth()
+            }
         }
+    }
+
+    private func checkHealth() async {
+        isCheckingHealth = true
+        healthMessage = ""
+        do {
+            let health = try await healthService.fetchHealth()
+            healthStatus = health.status
+        } catch {
+            healthStatus = "failed"
+            healthMessage = error.localizedDescription
+        }
+        isCheckingHealth = false
     }
 }
 
