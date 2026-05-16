@@ -8,10 +8,25 @@ final class HomeViewModel: ObservableObject {
     @Published var errorMessage: String?
 
     private let dashboardService = DashboardService()
+    private let healthService = HealthService()
 
     func loadDashboard() async {
         isLoading = true
         defer { isLoading = false }
+
+        do {
+        // Launch-time connectivity check with one automatic retry
+            _ = try await healthService.fetchHealth()
+        } catch {
+            // first attempt failed — retry once after short delay
+            try? await Task.sleep(nanoseconds: 700_000_000) // 700ms
+            do {
+                _ = try await healthService.fetchHealth()
+            } catch {
+                errorMessage = "Cannot reach backend: \(error.localizedDescription)"
+                return
+            }
+        }
 
         do {
             let dashboard = try await dashboardService.fetchDashboard()
