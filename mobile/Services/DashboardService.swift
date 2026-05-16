@@ -18,7 +18,21 @@ private enum DashboardEndpoint: APIEndpoint {
 }
 
 final class DashboardService {
-    func fetchDashboard() async throws -> DashboardData {
-        try await APIClient.shared.request(DashboardEndpoint.dashboard)
+    func fetchDashboard(retries: Int = 3) async throws -> DashboardData {
+        var attempt = 0
+        var delay: UInt64 = 300_000_000 // 300ms
+
+        while true {
+            do {
+                return try await APIClient.shared.request(DashboardEndpoint.dashboard)
+            } catch {
+                attempt += 1
+                if attempt >= retries {
+                    throw error
+                }
+                try? await Task.sleep(nanoseconds: delay)
+                delay *= 2
+            }
+        }
     }
 }

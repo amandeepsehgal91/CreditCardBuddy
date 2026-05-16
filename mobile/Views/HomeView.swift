@@ -8,6 +8,24 @@ struct HomeView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
+                    // Inline error banner with retry
+                    if let error = viewModel.errorMessage {
+                        HStack(spacing: 12) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.yellow)
+                            Text(error)
+                                .font(.subheadline)
+                                .foregroundColor(.primary)
+                                .lineLimit(2)
+                            Spacer()
+                            Button(action: { Task { await viewModel.loadDashboard() } }) {
+                                Text("Retry")
+                            }
+                        }
+                        .padding()
+                        .background(Color(.systemYellow).opacity(0.12))
+                        .cornerRadius(12)
+                    }
                     if let summary = viewModel.summary {
                         DashboardSummaryView(summary: summary)
                     }
