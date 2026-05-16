@@ -19,8 +19,19 @@ struct HomeView: View {
                 }
                 .padding()
             }
+            .refreshable {
+                await viewModel.loadDashboard()
+            }
             .navigationTitle("Credit Card Buddy")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        Task { await viewModel.loadDashboard() }
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         isShowingSettings = true
