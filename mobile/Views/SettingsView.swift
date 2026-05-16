@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedEnvironment = NetworkEnvironment.current
+    @State private var selectedRetryCount = AppConfig.shared.dashboardRetryCount
     @State private var healthStatus: String = "Unknown"
     @State private var isCheckingHealth = false
     @State private var healthMessage: String = ""
@@ -38,6 +39,13 @@ struct SettingsView: View {
                         .truncationMode(.middle)
                 }
 
+                Section(header: Text("Retry policy")) {
+                    Stepper("Retry attempts: \(selectedRetryCount)", value: $selectedRetryCount, in: 0...10)
+                    Text("Number of times to retry dashboard fetch (exponential backoff).")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+
                 Section(header: Text("Backend health")) {
                     HStack {
                         Text("Status")
@@ -68,6 +76,7 @@ struct SettingsView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         NetworkEnvironment.setCurrent(selectedEnvironment)
+                        AppConfig.shared.dashboardRetryCount = selectedRetryCount
                         dismiss()
                     }
                 }
