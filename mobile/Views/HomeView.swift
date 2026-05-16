@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
+    @State private var isShowingSettings = false
 
     var body: some View {
         NavigationView {
@@ -19,6 +20,18 @@ struct HomeView: View {
                 .padding()
             }
             .navigationTitle("Credit Card Buddy")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isShowingSettings = true
+                    }) {
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingSettings) {
+                SettingsView()
+            }
             .task {
                 await viewModel.loadDashboard()
             }
