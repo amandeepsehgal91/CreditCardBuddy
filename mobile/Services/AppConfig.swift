@@ -5,6 +5,7 @@ final class AppConfig {
     private init() {}
 
     private let retryKey = "DashboardRetryCount"
+    private let lastSuccessKey = "LastSuccessfulConnection"
 
     var dashboardRetryCount: Int {
         get {
@@ -20,6 +21,15 @@ final class AppConfig {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: retryKey)
+        }
+    }
+
+    var lastSuccessfulConnection: Date? {
+        get {
+            UserDefaults.standard.object(forKey: lastSuccessKey) as? Date
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: lastSuccessKey)
         }
     }
 }

@@ -7,6 +7,7 @@ struct SettingsView: View {
     @State private var healthStatus: String = "Unknown"
     @State private var isCheckingHealth = false
     @State private var healthMessage: String = ""
+    @State private var recentLogs: [NetworkLogEntry] = NetworkLogger.shared.entries
 
     private let healthService = HealthService()
 
@@ -64,9 +65,30 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                     }
 
+                    if let lastSuccess = AppConfig.shared.lastSuccessfulConnection {
+                        Text("Last successful connection: \(lastSuccess, style: .relative)")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
+
                     Button("Check connection") {
                         Task {
                             await checkHealth()
+                        }
+                    }
+                }
+
+                if !recentLogs.isEmpty {
+                    Section(header: Text("Recent network logs")) {
+                        ForEach(Array(recentLogs.prefix(3))) { entry in
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(entry.message)
+                                    .font(.subheadline)
+                                Text(entry.timestamp, style: .time)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.vertical, 4)
                         }
                     }
                 }
@@ -89,6 +111,7 @@ struct SettingsView: View {
             }
             .task {
                 await checkHealth()
+                recentLogs = NetworkLogger.shared.entries
             }
         }
     }
@@ -99,10 +122,14 @@ struct SettingsView: View {
         do {
             let health = try await healthService.fetchHealth()
             healthStatus = health.status
+            AppConfig.shared.lastSuccessfulConnection = Date()
+            NetworkLogger.shared.log(level: "info", message: "Health check succeeded")
         } catch {
             healthStatus = "failed"
             healthMessage = error.localizedDescription
+            NetworkLogger.shared.log(level: "warning", message: "Health check failed: \(error.localizedDescription)")
         }
+        recentLogs = NetworkLogger.shared.entries
         isCheckingHealth = false
     }
 }
