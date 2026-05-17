@@ -5,6 +5,7 @@ let package = Package(
     name: "CreditCardBuddy",
     platforms: [
         .iOS(.v17),
+        .macOS(.v14),
         .macCatalyst(.v17)
     ],
     products: [
@@ -14,7 +15,7 @@ let package = Package(
         )
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "CreditCardBuddy",
             path: "./",
             exclude: ["README.md"],

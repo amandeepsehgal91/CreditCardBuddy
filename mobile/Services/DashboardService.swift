@@ -19,13 +19,18 @@ private enum DashboardEndpoint: APIEndpoint {
 
 final class DashboardService {
     func fetchDashboard() async throws -> DashboardData {
+        // Return mock data if mock mode is enabled
+        if AppConfig.shared.useMockData {
+            return DashboardService.createMockDashboard()
+        }
+
         let retries = max(1, AppConfig.shared.dashboardRetryCount)
         var attempt = 0
         var delay: UInt64 = 300_000_000 // 300ms
 
         while true {
             do {
-                let dashboard = try await APIClient.shared.request(DashboardEndpoint.dashboard)
+                let dashboard: DashboardData = try await APIClient.shared.request(DashboardEndpoint.dashboard)
                 NetworkLogger.shared.log(level: "info", message: "Dashboard loaded successfully on attempt \(attempt + 1)")
                 AppConfig.shared.lastSuccessfulConnection = Date()
                 return dashboard
@@ -42,5 +47,51 @@ final class DashboardService {
                 delay = min(delay * 2, 5_000_000_000)
             }
         }
+    }
+
+    private static func createMockDashboard() -> DashboardData {
+        let now = Date()
+        let cards = [
+            CreditCard(
+                id: "1",
+                issuer: "HDFC",
+                cardName: "Millenia",
+                last4: "1234",
+                rewardProgram: "SmartPoints",
+                currentBalance: 15420.5,
+                availableCredit: 34579.5,
+                dueDate: Calendar.current.date(byAdding: .day, value: 5, to: now) ?? now,
+                monthlySpend: 3740
+            ),
+            CreditCard(
+                id: "2",
+                issuer: "SBI",
+                cardName: "Elite",
+                last4: "5678",
+                rewardProgram: "Cashback",
+                currentBalance: 8200,
+                availableCredit: 12100,
+                dueDate: Calendar.current.date(byAdding: .day, value: 12, to: now) ?? now,
+                monthlySpend: 6200
+            )
+        ]
+
+        let totalSpend = cards.reduce(0) { $0 + $1.monthlySpend }
+        let summary = DashboardSummary(
+            totalCards: cards.count,
+            monthlySpend: totalSpend,
+            totalRewards: 12450,
+            nextPaymentDue: cards[0].dueDate,
+            nextRedemptionHint: "Use HDFC Miles for travel"
+        )
+
+        let spendCategories = [
+            SpendCategory(name: "Dining", amount: 6200, color: "#FF9F1C", percent: 37),
+            SpendCategory(name: "Travel", amount: 4200, color: "#2EC4B6", percent: 25),
+            SpendCategory(name: "Groceries", amount: 3600, color: "#8D99AE", percent: 21),
+            SpendCategory(name: "Shopping", amount: 2400, color: "#EF476F", percent: 17)
+        ]
+
+        return DashboardData(summary: summary, cards: cards, spendCategories: spendCategories)
     }
 }

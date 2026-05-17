@@ -4,9 +4,11 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedEnvironment = NetworkEnvironment.current
     @State private var selectedRetryCount = AppConfig.shared.dashboardRetryCount
+    @State private var useMockData = AppConfig.shared.useMockData
     @State private var healthStatus: String = "Unknown"
     @State private var isCheckingHealth = false
     @State private var healthMessage: String = ""
+    @State private var showDebugPanel = false
     @State private var recentLogs: [NetworkLogEntry] = NetworkLogger.shared.entries
 
     private let healthService = HealthService()
@@ -47,6 +49,13 @@ struct SettingsView: View {
                         .foregroundColor(.secondary)
                 }
 
+                Section(header: Text("Testing & offline support")) {
+                    Toggle("Use mock data", isOn: $useMockData)
+                    Text("Enable to test the app without a running backend server.")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+
                 Section(header: Text("Backend health")) {
                     HStack {
                         Text("Status")
@@ -78,17 +87,40 @@ struct SettingsView: View {
                     }
                 }
 
-                if !recentLogs.isEmpty {
-                    Section(header: Text("Recent network logs")) {
-                        ForEach(Array(recentLogs.prefix(3))) { entry in
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(entry.message)
-                                    .font(.subheadline)
-                                Text(entry.timestamp, style: .time)
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
+                Section {
+                    DisclosureGroup(isExpanded: $showDebugPanel) {
+                        if recentLogs.isEmpty {
+                            Text("No recent network log entries.")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .padding(.vertical, 4)
+                        } else {
+                            ForEach(Array(recentLogs.prefix(5))) { entry in
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(entry.message)
+                                        .font(.subheadline)
+                                    Text(entry.timestamp, style: .time)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.vertical, 4)
                             }
-                            .padding(.vertical, 4)
+                        }
+
+                        Button(role: .destructive) {
+                            NetworkLogger.shared.clear()
+                            recentLogs = NetworkLogger.shared.entries
+                        } label: {
+                            Text("Clear debug logs")
+                        }
+                        .padding(.top, 4)
+                    } label: {
+                        HStack {
+                            Text("Debug & network logs")
+                            Spacer()
+                            Text("Tap to expand")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }
@@ -99,6 +131,7 @@ struct SettingsView: View {
                     Button("Save") {
                         NetworkEnvironment.setCurrent(selectedEnvironment)
                         AppConfig.shared.dashboardRetryCount = selectedRetryCount
+                        AppConfig.shared.useMockData = useMockData
                         dismiss()
                     }
                 }

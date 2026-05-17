@@ -1,0 +1,101 @@
+{
+  "": {
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/master.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/App/CreditCardBuddyApp.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCardBuddyApp.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCardBuddyApp.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCardBuddyApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCardBuddyApp.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/CreditCard.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCard.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCard.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCard~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCard.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/DashboardSummary.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummary.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummary.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummary~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummary.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/SpendCategory.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppConfig.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/DashboardService.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/HealthService.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HealthService.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HealthService.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HealthService~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HealthService.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkEnvironment.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkEnvironment.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkEnvironment.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkEnvironment~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkEnvironment.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkLogger.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Color+Hex.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/DashboardSummaryView.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/HomeView.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeView.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeView.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeView~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeView.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SettingsView.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SettingsView.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SettingsView.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SpendCategoryRow.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swiftdeps"
+  }
+}

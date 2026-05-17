@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
@@ -10,21 +13,49 @@ struct HomeView: View {
                 VStack(spacing: 20) {
                     // Inline error banner with retry
                     if let error = viewModel.errorMessage {
-                        HStack(spacing: 12) {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundColor(.yellow)
-                            Text(error)
-                                .font(.subheadline)
-                                .foregroundColor(.primary)
-                                .lineLimit(2)
-                            Spacer()
-                            Button(action: { Task { await viewModel.loadDashboard() } }) {
-                                Text("Retry")
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.orange)
+                                    .frame(width: 20)
+                                Text(error)
+                                    .font(.subheadline)
+                                    .foregroundColor(.primary)
+                                Spacer()
+                            }
+                            
+                            HStack(spacing: 8) {
+                                Button(action: { Task { await viewModel.loadDashboard() } }) {
+                                    Text("Retry")
+                                        .font(.subheadline)
+                                }
+                                .buttonStyle(.bordered)
+                                
+                                Button(action: { isShowingSettings = true }) {
+                                    Text("Settings")
+                                        .font(.subheadline)
+                                }
+                                .buttonStyle(.bordered)
+                                
+                                Spacer()
                             }
                         }
                         .padding()
-                        .background(Color(.systemYellow).opacity(0.12))
+                        .background(Color.orange.opacity(0.08))
                         .cornerRadius(12)
+                        
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Backend not reachable?")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                            Text("Try enabling 'Use mock data' in Settings to test the app without a backend server.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(10)
+                        .background(Color.gray.opacity(0.05))
+                        .cornerRadius(8)
                     }
                     if let summary = viewModel.summary {
                         DashboardSummaryView(summary: summary)
@@ -42,7 +73,7 @@ struct HomeView: View {
             }
             .navigationTitle("Credit Card Buddy")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: homeToolbarLeadingPlacement) {
                     Button(action: {
                         Task { await viewModel.loadDashboard() }
                     }) {
@@ -50,7 +81,7 @@ struct HomeView: View {
                     }
                 }
 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: homeToolbarTrailingPlacement) {
                     Button(action: {
                         isShowingSettings = true
                     }) {
@@ -124,6 +155,22 @@ struct HomeView: View {
             }
         }
     }
+
+    private var homeToolbarLeadingPlacement: ToolbarItemPlacement {
+        #if os(macOS)
+        .automatic
+        #else
+        .navigationBarLeading
+        #endif
+    }
+
+    private var homeToolbarTrailingPlacement: ToolbarItemPlacement {
+        #if os(macOS)
+        .automatic
+        #else
+        .navigationBarTrailing
+        #endif
+    }
 }
 
 struct CardView<Content: View>: View {
@@ -135,7 +182,7 @@ struct CardView<Content: View>: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color(.secondarySystemBackground))
+            .fill(Color.platformSecondaryBackground)
             .overlay(content.padding())
             .shadow(color: Color.black.opacity(0.08), radius: 10, x: 0, y: 6)
     }
@@ -158,7 +205,7 @@ struct ActionButton: View {
         }
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color.platformSystemBackground)
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 4)
     }
@@ -200,8 +247,26 @@ struct CreditCardRow: View {
             }
         }
         .padding()
-        .background(Color(.secondarySystemBackground))
+        .background(Color.platformSecondaryBackground)
         .cornerRadius(18)
+    }
+}
+
+private extension Color {
+    static var platformSystemBackground: Color {
+        #if canImport(UIKit)
+        return Color(.systemBackground)
+        #else
+        return Color(nsColor: NSColor.windowBackgroundColor)
+        #endif
+    }
+
+    static var platformSecondaryBackground: Color {
+        #if canImport(UIKit)
+        return Color(.secondarySystemBackground)
+        #else
+        return Color(nsColor: NSColor.underPageBackgroundColor)
+        #endif
     }
 }
 

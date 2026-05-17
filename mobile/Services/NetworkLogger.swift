@@ -1,7 +1,7 @@
 import Foundation
 
 struct NetworkLogEntry: Codable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     let timestamp: Date
     let level: String
     let message: String

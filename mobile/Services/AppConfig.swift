@@ -6,6 +6,16 @@ final class AppConfig {
 
     private let retryKey = "DashboardRetryCount"
     private let lastSuccessKey = "LastSuccessfulConnection"
+    private let mockModeKey = "UseMockData"
+
+    var useMockData: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: mockModeKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: mockModeKey)
+        }
+    }
 
     var dashboardRetryCount: Int {
         get {
