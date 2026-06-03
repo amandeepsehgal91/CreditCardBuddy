@@ -68,11 +68,23 @@
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swiftdeps"
   },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/CardDetailView.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView.swiftdeps"
+  },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Color+Hex.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.d",
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.swift.o",
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Colors.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Colors.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Colors.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Colors~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Colors.swiftdeps"
   },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/DashboardSummaryView.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView.d",

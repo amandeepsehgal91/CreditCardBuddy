@@ -14,20 +14,22 @@ final class HomeViewModel: ObservableObject {
         isLoading = true
         defer { isLoading = false }
 
-        do {
-        // Launch-time connectivity check with one automatic retry
-            _ = try await healthService.fetchHealth()
-        } catch {
-            // first attempt failed — retry once after short delay
-            let jitter = UInt64.random(in: 0..<200_000_000)
-            try? await Task.sleep(nanoseconds: 700_000_000 + jitter)
+        if !AppConfig.shared.useMockData {
             do {
+                // Launch-time connectivity check with one automatic retry
                 _ = try await healthService.fetchHealth()
             } catch {
-                let message = "Cannot reach backend: \(error.localizedDescription)"
-                NetworkLogger.shared.log(level: "error", message: message)
-                errorMessage = message
-                return
+                // first attempt failed — retry once after short delay
+                let jitter = UInt64.random(in: 0..<200_000_000)
+                try? await Task.sleep(nanoseconds: 700_000_000 + jitter)
+                do {
+                    _ = try await healthService.fetchHealth()
+                } catch {
+                    let message = "Cannot reach backend: \(error.localizedDescription)"
+                    NetworkLogger.shared.log(level: "error", message: message)
+                    errorMessage = message
+                    return
+                }
             }
         }
 

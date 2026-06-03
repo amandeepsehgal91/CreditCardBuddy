@@ -9,7 +9,9 @@
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkEnvironment.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkLogger.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift
+/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/CardDetailView.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Color+Hex.swift
+/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Colors.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/DashboardSummaryView.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/HomeView.swift
 /Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SettingsView.swift

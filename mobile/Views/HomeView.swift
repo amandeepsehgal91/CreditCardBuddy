@@ -129,13 +129,15 @@ struct HomeView: View {
                 Text("Your cards")
                     .font(.headline)
                 Spacer()
-                Text("View all")
-                    .font(.subheadline)
-                    .foregroundColor(.blue)
+                NavigationLink("View all") {
+                    Text("")
+                }
             }
 
             ForEach(viewModel.cards) { card in
-                CreditCardRow(card: card)
+                NavigationLink(destination: CardDetailView(card: card)) {
+                    CreditCardRow(card: card)
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -249,24 +251,6 @@ struct CreditCardRow: View {
         .padding()
         .background(Color.platformSecondaryBackground)
         .cornerRadius(18)
-    }
-}
-
-private extension Color {
-    static var platformSystemBackground: Color {
-        #if canImport(UIKit)
-        return Color(.systemBackground)
-        #else
-        return Color(nsColor: NSColor.windowBackgroundColor)
-        #endif
-    }
-
-    static var platformSecondaryBackground: Color {
-        #if canImport(UIKit)
-        return Color(.secondarySystemBackground)
-        #else
-        return Color(nsColor: NSColor.underPageBackgroundColor)
-        #endif
     }
 }
 
