@@ -8,11 +8,14 @@ struct DashboardData: Codable {
 
 private enum DashboardEndpoint: APIEndpoint {
     case dashboard
+    case dashboardV1(userId: String)
 
     var path: String {
         switch self {
         case .dashboard:
             return "/dashboard"
+        case .dashboardV1(let userId):
+            return "/api/v1/dashboard/\(userId)"
         }
     }
 }
@@ -30,6 +33,15 @@ final class DashboardService {
 
         while true {
             do {
+                // Try database-backed endpoint first if user is logged in
+                if let userId = UserService.shared.currentUserId {
+                    let dashboard: DashboardData = try await APIClient.shared.request(DashboardEndpoint.dashboardV1(userId: userId))
+                    NetworkLogger.shared.log(level: "info", message: "Dashboard loaded from database on attempt \(attempt + 1)")
+                    AppConfig.shared.lastSuccessfulConnection = Date()
+                    return dashboard
+                }
+
+                // Fall back to legacy mock endpoint
                 let dashboard: DashboardData = try await APIClient.shared.request(DashboardEndpoint.dashboard)
                 NetworkLogger.shared.log(level: "info", message: "Dashboard loaded successfully on attempt \(attempt + 1)")
                 AppConfig.shared.lastSuccessfulConnection = Date()

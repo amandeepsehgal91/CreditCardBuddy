@@ -62,6 +62,12 @@
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.swiftdeps"
   },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.swiftdeps"
+  },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.d",
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swift.o",
