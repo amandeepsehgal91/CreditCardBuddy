@@ -38,6 +38,12 @@
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig.swiftdeps"
   },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppEnvironmentConfig.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppEnvironmentConfig.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppEnvironmentConfig.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppEnvironmentConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppEnvironmentConfig.swiftdeps"
+  },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/DashboardService.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService.d",
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardService.swift.o",

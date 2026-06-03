@@ -9,7 +9,9 @@ struct SettingsView: View {
     @State private var isCheckingHealth = false
     @State private var healthMessage: String = ""
     @State private var showDebugPanel = false
+    @State private var showFeatureFlags = false
     @State private var recentLogs: [NetworkLogEntry] = NetworkLogger.shared.entries
+    @State private var environmentConfig = AppEnvironmentConfig.shared.currentConfig()
 
     private let healthService = HealthService()
 
@@ -40,6 +42,82 @@ struct SettingsView: View {
                         .foregroundColor(.secondary)
                         .lineLimit(1)
                         .truncationMode(.middle)
+                }
+
+                Section(header: Text("Environment Configuration")) {
+                    ForEach(AppEnvironmentConfig.shared.allEnvironments(), id: \.name) { config in
+                        Button(action: {
+                            AppEnvironmentConfig.shared.selectedEnvironment = config.name
+                            environmentConfig = config
+                        }) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(config.displayName)
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                    Text(config.description)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                Spacer()
+                                if AppEnvironmentConfig.shared.selectedEnvironment == config.name {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.blue)
+                                } else {
+                                    Image(systemName: "circle")
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+
+                if let config = environmentConfig {
+                    Section(header: Text("Active Configuration")) {
+                        HStack {
+                            Text("Logging Level")
+                            Spacer()
+                            Text(config.loggingLevel.rawValue)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                        }
+
+                        HStack {
+                            Text("Analytics")
+                            Spacer()
+                            Text(config.analyticsEnabled ? "Enabled" : "Disabled")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(config.analyticsEnabled ? .green : .secondary)
+                        }
+                    }
+
+                    Section(header: Text("Feature Flags")) {
+                        DisclosureGroup(isExpanded: $showFeatureFlags) {
+                            VStack(alignment: .leading, spacing: 12) {
+                                ForEach(Array(config.featureFlags.sorted { $0.key < $1.key }), id: \.key) { flag, enabled in
+                                    HStack {
+                                        Text(flag)
+                                            .font(.subheadline)
+                                        Spacer()
+                                        Text(enabled ? "✓" : "✗")
+                                            .foregroundColor(enabled ? .green : .red)
+                                    }
+                                }
+                            }
+                            .padding(.vertical, 8)
+                        } label: {
+                            HStack {
+                                Text("Feature Flags")
+                                Spacer()
+                                Text("Tap to expand")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                    }
                 }
 
                 Section(header: Text("Retry policy")) {
@@ -132,6 +210,7 @@ struct SettingsView: View {
                         NetworkEnvironment.setCurrent(selectedEnvironment)
                         AppConfig.shared.dashboardRetryCount = selectedRetryCount
                         AppConfig.shared.useMockData = useMockData
+                        // Environment is already saved via AppEnvironmentConfig.selectedEnvironment
                         dismiss()
                     }
                 }
