@@ -26,6 +26,12 @@
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory.swiftdeps"
   },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/Transaction.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.swiftdeps"
+  },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.d",
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.swift.o",
@@ -68,6 +74,12 @@
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.swiftdeps"
   },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/TransactionService.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.swiftdeps"
+  },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.d",
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.swift.o",
@@ -79,6 +91,12 @@
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swift.o",
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/TransactionHistoryViewModel.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.swiftdeps"
   },
   "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/CardDetailView.swift": {
     "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView.d",
@@ -121,5 +139,11 @@
     "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swift.o",
     "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow~partial.swiftmodule",
     "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swiftdeps"
+  },
+  "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/TransactionHistoryView.swift": {
+    "dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.d",
+    "object": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.swift.o",
+    "swiftmodule": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView~partial.swiftmodule",
+    "swift-dependencies": "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.swiftdeps"
   }
 }

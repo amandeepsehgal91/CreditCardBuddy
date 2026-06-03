@@ -40,6 +40,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/Transaction.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift"
         },
         {
@@ -68,11 +72,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/TransactionService.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift"
         },
         {
           "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/TransactionHistoryViewModel.swift"
         },
         {
           "kind" : "file",
@@ -104,6 +116,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/TransactionHistoryView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -119,6 +135,7 @@
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CreditCard.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummary.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategory.swift.o",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppConfig.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/AppEnvironmentConfig.swift.o",
@@ -126,15 +143,18 @@
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HealthService.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkEnvironment.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/NetworkLogger.swift.o",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swift.o",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/CardDetailView.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Color+Hex.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Colors.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/DashboardSummaryView.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeView.swift.o",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SettingsView.swift.o",
-        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swift.o"
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swift.o",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -154,7 +174,6 @@
         "-entry-point-function-name",
         "-Xfrontend",
         "CreditCardBuddy_main",
-        "-color-diagnostics",
         "-swift-version",
         "5",
         "-DSWIFTUI_AVAILABLE",
@@ -194,6 +213,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/APIClient.swift.o"
         },
         {
@@ -222,11 +245,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/UserService.swift.o"
         },
         {
           "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/HomeViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.swift.o"
         },
         {
           "kind" : "file",
@@ -258,6 +289,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/Modules/CreditCardBuddy.swiftmodule"
         }
       ],
@@ -267,6 +302,7 @@
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/CreditCard.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/DashboardSummary.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/SpendCategory.swift",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/Transaction.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppConfig.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppEnvironmentConfig.swift",
@@ -274,15 +310,18 @@
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/HealthService.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkEnvironment.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkLogger.swift",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/TransactionService.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/TransactionHistoryViewModel.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/CardDetailView.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Color+Hex.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Colors.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/DashboardSummaryView.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/HomeView.swift",
         "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SettingsView.swift",
-        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SpendCategoryRow.swift"
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SpendCategoryRow.swift",
+        "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/TransactionHistoryView.swift"
       ],
       "tempsPath" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build",
       "wholeModuleOptimization" : false
@@ -304,6 +343,7 @@
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/CreditCard.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/DashboardSummary.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/SpendCategory.swift",
+      "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/Transaction.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppConfig.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/AppEnvironmentConfig.swift",
@@ -311,8 +351,10 @@
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/HealthService.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkEnvironment.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/NetworkLogger.swift",
+      "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/TransactionService.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift",
+      "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/TransactionHistoryViewModel.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/CardDetailView.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Color+Hex.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/Colors.swift",
@@ -320,6 +362,7 @@
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/HomeView.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SettingsView.swift",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SpendCategoryRow.swift",
+      "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/TransactionHistoryView.swift",
       "-I",
       "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -339,7 +382,6 @@
       "-entry-point-function-name",
       "-Xfrontend",
       "CreditCardBuddy_main",
-      "-color-diagnostics",
       "-swift-version",
       "5",
       "-DSWIFTUI_AVAILABLE",
@@ -416,6 +458,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Models/Transaction.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/APIClient.swift"
         },
         {
@@ -444,11 +490,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/TransactionService.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Services/UserService.swift"
         },
         {
           "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/HomeViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/ViewModels/TransactionHistoryViewModel.swift"
         },
         {
           "kind" : "file",
@@ -477,6 +531,10 @@
         {
           "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/SpendCategoryRow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/Views/TransactionHistoryView.swift"
         }
       ],
       "outputFilePath" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/sources"
@@ -563,6 +621,22 @@
         {
           "kind" : "file",
           "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/SpendCategoryRow.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/Transaction.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionHistoryViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/amandeepsehgal91/CreditCardBuddy/mobile/.build/arm64-apple-macosx/debug/CreditCardBuddy.build/TransactionService.swift.o"
         },
         {
           "kind" : "file",

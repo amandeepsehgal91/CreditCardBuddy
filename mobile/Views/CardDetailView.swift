@@ -18,6 +18,7 @@ struct CardDetailView: View {
                             Text("Overview").tag(0)
                             Text("Rewards").tag(1)
                             Text("Details").tag(2)
+                            Text("Transactions").tag(3)
                         }
                         .pickerStyle(.segmented)
                         .padding()
@@ -27,8 +28,10 @@ struct CardDetailView: View {
                             overviewSection
                         } else if selectedTab == 1 {
                             rewardsSection
-                        } else {
+                        } else if selectedTab == 2 {
                             detailsSection
+                        } else {
+                            transactionsSection
                         }
                     }
                     .padding(.bottom, 20)
@@ -205,6 +208,11 @@ struct CardDetailView: View {
         .background(Color.platformSecondaryBackground)
         .cornerRadius(12)
         .padding(.horizontal)
+    }
+
+    private var transactionsSection: some View {
+        TransactionHistoryView(cardId: card.id)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

@@ -88,14 +88,45 @@ app.get('/api/v1/dashboard/:userId', async (req, res) => {
   }
 });
 
-// NEW: Get transactions for a card
+// NEW: Get transactions for a card with optional filtering
 app.get('/api/v1/cards/:cardId/transactions', async (req, res) => {
   try {
     const { cardId } = req.params;
+    const { startDate, endDate, category, search, limit = 50, offset = 0 } = req.query;
+
+    // Build where clause
+    const where: any = { card_id: cardId };
+
+    // Date range filtering
+    if (startDate || endDate) {
+      where.transaction_date = {};
+      if (startDate) {
+        where.transaction_date.$gte = new Date(String(startDate));
+      }
+      if (endDate) {
+        where.transaction_date.$lte = new Date(String(endDate));
+      }
+    }
+
+    // Category filtering
+    if (category) {
+      where.category = String(category);
+    }
+
+    // Search by merchant or description
+    if (search) {
+      const { Op } = require('sequelize');
+      where[Op.or] = [
+        { merchant_name: { [Op.iLike]: `%${search}%` } },
+        { description: { [Op.iLike]: `%${search}%` } },
+      ];
+    }
+
     const transactions = await Transaction.findAll({
-      where: { card_id: cardId },
+      where,
       order: [['transaction_date', 'DESC']],
-      limit: 50,
+      limit: Math.min(parseInt(String(limit)) || 50, 200),
+      offset: parseInt(String(offset)) || 0,
     });
 
     res.json(transactions);
